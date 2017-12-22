@@ -1,0 +1,16 @@
+npm i -g npm
+npm --version
+5.5.1
+
+npm install -g vue-cli
+vue --version
+2.9.1
+
+cd C:\dev\projects\vue-projects
+
+vue init webpack-simple pizza-planet
+
+cd pizza-planet
+npm install
+npm run dev
+
