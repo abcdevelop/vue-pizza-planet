@@ -1,5 +1,5 @@
 {
-  "name": "pizza-planet",
+  "name": "vue-pizza-planet",
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "abcdevelop <bruno.panaget@yahoo.fr>",
@@ -10,6 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "firebase": "^4.8.1",
     "vue": "^2.4.4"
   },
   "browserslist": [

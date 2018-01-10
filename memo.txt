@@ -8,9 +8,10 @@ vue --version
 
 cd C:\dev\projects\vue-projects
 
-vue init webpack-simple pizza-planet
+vue init webpack-simple vue-pizza-planet
 
-cd pizza-planet
+cd vue-pizza-planet
 npm install
 npm run dev
 
+npm install --save firebase

@@ -2,8 +2,8 @@
   <header class="row">
     <nav class="navbar navbar-toggleable-md navbar-light">
       <a class="navbar-brand" href="/">PIZZA PLANET</a>
-      <ul class="nav">
-        <li class="nav-item active">
+      <ul class="navbar-nav">
+        <li class="nav-item">
           <a class="nav-link" href="/">home</a>
         </li>
         <li class="nav-item">

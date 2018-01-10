@@ -1,4 +1,4 @@
-# pizza-planet
+# vue-pizza-planet
 
 > A Vue.js project
 
