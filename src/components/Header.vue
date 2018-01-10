@@ -3,12 +3,8 @@
     <nav class="navbar navbar-toggleable-md navbar-light">
       <a class="navbar-brand" href="/">PIZZA PLANET</a>
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/">home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/">menu</a>
-        </li>
+        <router-link to="/" tag="li"><a class="nav-link" href="/">home</a></router-link>
+        <router-link to="/menu" tag="li"><a class="nav-link" >menu</a></router-link>
       </ul>
     </nav>
   </header>

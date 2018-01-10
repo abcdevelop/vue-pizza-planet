@@ -43,9 +43,9 @@
       },
       signOut(){
         Firebase.auth().signOut().then(function(){
-          alert('logged out').catch(function(error){
-            alert('error')
-          })
+          alert('logged out')
+        }).catch(function(error){
+          alert('error')
         })
       }
     }

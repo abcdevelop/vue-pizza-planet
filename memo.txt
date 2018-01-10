@@ -15,3 +15,5 @@ npm install
 npm run dev
 
 npm install --save firebase
+
+npm install --save vue-router
