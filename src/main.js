@@ -1,19 +1,38 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from './components/Home.vue'
-import Menu from './components/Menu.vue'
+import {routes} from './routes'
 import App from './App.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  { path:'/', component: Home },
-  { path:'/menu', component: Menu }
-]
-
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history',
+  scrollBehavior(to, from, savedPosition){
+    // if (savedPosition) {
+    //   return savedPosition
+    // } else {
+    //   return {x: 0, y: 0}
+    // }
+    if (to.hash) {
+      return {
+        selector: to.hash
+      }
+    }
+  }
 })
+
+// router.beforeEach((to,from,next)=>{
+//   if(to.path != '/admin'){
+//     next()
+//   }else{
+//     next(false)
+//   }
+// })
+
+// router.afterEach((to,from,next)=>{
+//   alert('after each')
+// })
 
 new Vue({
   el: '#app',

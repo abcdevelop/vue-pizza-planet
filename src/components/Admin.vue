@@ -42,13 +42,13 @@
           <div class="order-number">
             <strong><em>Order Number: 1</em></strong>
             <button class="btn btn-sm btn-outline-danger">x</button>
-            </div>
-            <tr>
-              <td>Margarita</td>
-              <td>9"</td>
-              <td>1</td>
-              <td>6.95</td>
-            </tr>
+          </div>
+          <tr>
+            <td>Margarita</td>
+            <td>9"</td>
+            <td>1</td>
+            <td>6.95</td>
+          </tr>
           </tbody>
         </table>
       </div>
@@ -66,10 +66,30 @@
 <script>
   import ppNewPizza from './NewPizza.vue'
   import ppLogin from './Login.vue'
+
   export default {
-    components:{
-      ppLogin,
-      ppNewPizza
+    components: {
+      ppNewPizza,
+      ppLogin
+    },
+
+    // data() {
+    //   return {
+    //     name: 'Chris'
+    //   }
+    // },
+    // beforeRouteEnter: (to, from, next) => {
+    //   next(vm => {
+    //     alert('Hi ' + vm.name)
+    //   })
+    // }
+
+    beforeRouteLeave:(to, from, next) => {
+      if(confirm('Have you remember to log out')==true){
+        next()
+      }else{
+        next(false)
+      }
     }
   }
 </script>
