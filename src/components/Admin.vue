@@ -72,7 +72,18 @@
       ppNewPizza,
       ppLogin
     },
-
+    computed:{
+      getMenuItems(){
+        return this.$store.state.menuItems
+      }
+    },
+    beforeRouteLeave:(to, from, next) => {
+      if(confirm('Have you remember to log out')==true){
+        next()
+      }else{
+        next(false)
+      }
+    }
     // data() {
     //   return {
     //     name: 'Chris'
@@ -83,13 +94,5 @@
     //     alert('Hi ' + vm.name)
     //   })
     // }
-
-    beforeRouteLeave:(to, from, next) => {
-      if(confirm('Have you remember to log out')==true){
-        next()
-      }else{
-        next(false)
-      }
-    }
   }
 </script>

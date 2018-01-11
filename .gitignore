@@ -7,6 +7,7 @@ yarn-error.log
 # files with keys
 src/firebaseConfig.js
 
+
 # Editor directories and files
 .idea
 *.suo
