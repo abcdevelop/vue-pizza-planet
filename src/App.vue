@@ -30,11 +30,16 @@
 <script>
   import ppHeader from './components/Header.vue'
   import ppFooter from './components/Footer.vue'
+  import {dbMenuRef, dbOrdersRef} from './firebaseConfig'
 
   export default {
     components: {
       ppHeader,
       ppFooter
+    },
+    created(){
+      this.$store.dispatch('setMenuRef',dbMenuRef)
+      this.$store.dispatch('setOrdersRef',dbOrdersRef)
     }
   }
 </script>

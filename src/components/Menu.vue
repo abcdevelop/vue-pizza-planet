@@ -9,7 +9,7 @@
             <th>AddTo basket</th>
           </tr>
         </thead>
-        <tbody v-for="item in getMenuItems">
+        <tbody v-for="item in getMenuItems" :key="item['.key']">
           <tr>
             <td><strong>{{ item.name }}</strong></td>
           </tr>
@@ -50,16 +50,21 @@
           </tbody>
         </table>
         <p>Order total: </p>
-        <button class="btn btn-success btn-block">Place Order</button>
+        <button class="btn btn-success btn-block" @click="addNewOrder">Place Order</button>
       </div>
       <div v-else>
         <p>{{basketText}}</p>
+        <!--{{this.$store.state.orders}}-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
+  import {dbOrdersRef} from '../firebaseConfig'
+
+
   export default{
     data(){
       return{
@@ -68,10 +73,13 @@
       }
     },
     computed:{
-      getMenuItems(){
-        //return this.$store.state.menuItems
-        return this.$store.getters.getMenuItems
-      }
+      // getMenuItems(){
+      //   //return this.$store.state.menuItems
+      //   return this.$store.getters.getMenuItems
+      // }
+      ...mapGetters([
+        'getMenuItems'
+      ])
     },
     methods:{
       addToBasket(item,option){
@@ -93,7 +101,15 @@
         if(item.quantity===0){
           this. removeFromBasket(item)
         }
+      },
+      addNewOrder(){
+        //this.$store.commit('addOrder',this.basket)
+        dbOrdersRef.push(this.basket)
+        this.basket=[]
+        this.basketText='Thank you, your order has been placed! :)'
       }
     }
   }
 </script>
+
+
