@@ -15,7 +15,7 @@
           </tr>
           <tr v-for="option in item.options">
             <td>{{option.size}}</td>
-            <td>{{option.price}}</td>
+            <td>{{option.price | currency}}</td>
             <td><button class="btn btn-sm btn-outline-success"
                         type="button"
                         @click="addToBasket(item,option)">+</button></td>
@@ -45,11 +45,11 @@
                       type="button"
                       @click="increaseQuantity(item)">+</button></td>
             <td>{{item.name}} {{item.size}}</td>
-            <td>{{item.price * item.quantity}}</td>
+            <td>{{item.price * item.quantity | currency}}</td>
           </tr>
           </tbody>
         </table>
-        <p>Order total: </p>
+        <p>Order total: {{total | currency}}</p>
         <button class="btn btn-success btn-block" @click="addNewOrder">Place Order</button>
       </div>
       <div v-else>
@@ -79,7 +79,15 @@
       // }
       ...mapGetters([
         'getMenuItems'
-      ])
+      ]),
+      total(){
+        let totalCost=0
+        for(let items in this.basket){
+          let individualItem=this.basket[items]
+          totalCost += individualItem.quantity * individualItem.price
+        }
+        return totalCost
+      }
     },
     methods:{
       addToBasket(item,option){
