@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes,
   mode: 'history',
-  scrollBehavior(to, from, savedPosition){
+  scrollBehavior(to, from, savedPosition) {
     // if (savedPosition) {
     //   return savedPosition
     // } else {
@@ -36,9 +36,26 @@ const router = new VueRouter({
 //   alert('after each')
 // })
 
-Vue.filter('currency', function(val){
+Vue.filter('currency', function (val) {
   return Accounting.formatMoney(val)
 })
+
+// Vue.component('global-component',
+//      {template:'<div>A global component </div>'}
+// )
+
+// Vue.component('global-component',
+//   function(resolve,reject){
+//     setTimeout(function(){
+//       resolve({template:'<div>A global component </div>'})
+//     },2000)
+//   }
+// )
+
+// Vue.component('global-component',
+//   () => import('./components/Menu.vue')
+// )
+
 
 new Vue({
   el: '#app',

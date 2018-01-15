@@ -23,3 +23,5 @@ npm install --save vuex
 npm install vuexfire --save
 
 npm install --save accounting-js
+
+npm install --save-dev babel-plugin-syntax-dynamic-import
